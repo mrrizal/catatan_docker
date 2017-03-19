@@ -1,2 +1,3 @@
 # catatan_docker
-catatan docker
+belum lengkap, masih banyak yang kurang  
+sebagian besar hanya translate an dari https://docs.docker.com/
