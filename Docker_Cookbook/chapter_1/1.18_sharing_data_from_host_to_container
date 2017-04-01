@@ -1,0 +1,5 @@
+sharing direktori dari host ke container
+ketikan di terminal:
+sudo docker run -ti -v host/path:container/path image_name command
+contoh:
+sudo docker run -ti -v /home/rizal/Document/catatan_docker ubuntu:16.04 /bin/bash

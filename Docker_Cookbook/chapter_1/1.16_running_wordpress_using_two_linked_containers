@@ -12,14 +12,14 @@ note: jika tidak bisa, kemungkinan port sedang digunakan, solusinya matikan serv
 anda juga bisa men setting dbname, username, password, dan root password(mysql)
 
 untuk mysql:
-sudo docker run --name mysqlpw -e MYSQL_ROOT_PASSWORD=wordpressdocker \
+sudo docker run --name mysqlwp -e MYSQL_ROOT_PASSWORD=wordpressdocker \
 -e MYSQL_DATABASE=wordpress \
 -e MYSQL_USERNAME=wordpress \
 -e MYSQL_PASSWORD=wordpresspwd \
 -d mysql
 
 untuk wordpress:
-sudo docker run --name wordpress --link mysqlpw:mysql -p 80:80 \
+sudo docker run --name wordpress --link mysqlwp:mysql -p 80:80 \
 -e WORDPRESS_DB_NAME=wordpress \
 -e WORDPRESS_DB_USER=wordpress \
 -e WORDPRESS_DB_PASSWORD=wordpresspwd \

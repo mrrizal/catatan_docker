@@ -1,0 +1,20 @@
+Terdapat 2 solusi untuk melakukan backup database yang berjalan di atas container:
+1. mount a volume from docker host into the mysql container
+2. menggunakan docker exec untuk menjalan mysqldump
+
+cara 1 merupakan cara untuk menyimpan data walaupun container di hapus dengan menggunakan
+docker rm -v. setelah container di hapus, jika kita ingin menggunakan datanya, kita tinggal
+mount direktori dari host ke container
+
+misal data mysql berada di /home/rizal/mysql, dan akan di mount ke /var/lib/mysql
+perintah yang harus diketikan adalah:
+sudo docker run --name mysqlwp -e MYSLQ_ROOT_PASSWORD=wordpressdocker \
+-e MYSQL_DATABASE=wordpress \
+-e MYSQL_USER=wordpress \
+-e MYSQL_PASSWORD=wordpresspwd \
+-v /home/rizal/mysql:/var/lib/mysql \
+-d mysql
+
+untuk dump mysql database tetap digunakan mysqldump dengan mengetikan perintah:
+sudo docker exec mysqlwp mysqldump --all-databases \
+--password=wordpressdocker > wordpress.backup

@@ -1,0 +1,12 @@
+pertama kita buat file di container nya, ingat container harus dalam keadaan jalan
+berikut langkah-langkahnya (nama container nya testcoy)
+sudo docker run -ti --name testcopy ubuntu:16.04 /bin/bash
+cd home
+echo "i love you" > file.txt
+
+
+copy dari container ke host:
+sudo docker cp testcopy:/home/file.txt .
+
+copy dari host ke container
+sudo docker cp contoh.txt testcopy:/home

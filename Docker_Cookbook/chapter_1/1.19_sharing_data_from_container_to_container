@@ -1,0 +1,18 @@
+jika pada sesi 1.18 kita me mount volume yang ada di host ke container,
+kali ini kita akan me mount volume dari kontainer yang satu ke container yang lain
+
+container pertama, akan dibuat direktori data(nanti akan ada di volume) dan container tersebut diberi nama data:
+sudo docker run -ti -v /data --name data ubuntu:16.04
+untuk melihat volumes: sudo docker inspect -f {{.Mounts}} container_id
+
+untuk me mount volume dari container data ke container baru ketika perintah berikut
+sudo docker run -ti --volumes-from nama_contaier nama_image:tag command
+
+sudo docker run -ti --volumes-from data ubuntu:16.04 /bin/bash 
+pada perintah di atas, kita membuat container baru dan me mount volumes dari container pertama
+
+jika kita lihat container, pasti akan terdapat 2 buah container sekarang:
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES
+3c10bb856c3f        ubuntu:16.04        "/bin/bash"         7 minutes ago       Exited (0) 2 seconds ago                       kickass_heisenberg
+a8a9faff5843        ubuntu:16.04        "/bin/bash"         9 minutes ago       Exited (0) 8 minutes ago                       data
+
