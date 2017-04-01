@@ -1,0 +1,27 @@
+kali ini kita akan menjalan wordpress dengan 2 kontainer.
+1 kontainer untuk web dan wordpress, 1 nya lagi untuk database(mysql)
+
+download kontainer wordpress dan mysql
+sudo docker pull wordpress:latest
+sudo docker pull mysql:latest
+
+jalankan docker mysql: sudo docker run --name mysqlwp -e MYSQL_ROOT_PASSWORD=wordpressdocker -d mysql
+jalankan docker wordpress: sudo docker run --name wordpress --link mysqlwp:mysql -p 80:80 -d wordpress
+note: jika tidak bisa, kemungkinan port sedang digunakan, solusinya matikan service yang menggunakan port terseubt(80/3306)
+
+anda juga bisa men setting dbname, username, password, dan root password(mysql)
+
+untuk mysql:
+sudo docker run --name mysqlpw -e MYSQL_ROOT_PASSWORD=wordpressdocker \
+-e MYSQL_DATABASE=wordpress \
+-e MYSQL_USERNAME=wordpress \
+-e MYSQL_PASSWORD=wordpresspwd \
+-d mysql
+
+untuk wordpress:
+sudo docker run --name wordpress --link mysqlpw:mysql -p 80:80 \
+-e WORDPRESS_DB_NAME=wordpress \
+-e WORDPRESS_DB_USER=wordpress \
+-e WORDPRESS_DB_PASSWORD=wordpresspwd \
+-d wordpress
+

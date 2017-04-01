@@ -1,0 +1,13 @@
+- ketikan di terminal: sudo docker run busybox echo hello world
+
+- untuk melihat container yang sedang dijalankan: sudo docker ps
+
+- untuk melihat seluurh container: sudo docker ps -a
+
+- untuk menghapus container: sudo docker rm id_container
+
+- untuk melihat images: sudo docker images
+
+- untuk hapus images: sudo docker rmi nama_image
+
+- get terminal session di dalam container: sudo docker run -t -i ubuntu:16.04 /bib/bash

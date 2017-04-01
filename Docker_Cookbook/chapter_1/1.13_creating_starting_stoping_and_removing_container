@@ -1,0 +1,13 @@
+- buat container menggunakan perintah create: sudo docker create -P --expose=1234 python:2.7 python -m SimpleHTTPServer 1234
+
+- untuk melihat container: sudo docker ps -a
+
+- untuk menjalankan container: sudo docker start id_container
+
+- restart container: sudo docker restart id_container
+
+- mematikan container: sudo docker kill id_container
+
+- hapus container: sudo docker rm id_container
+
+- hapus semua container: docker rm $(docker ps -a -q)

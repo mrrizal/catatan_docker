@@ -1,0 +1,15 @@
+dockerfile: docker file merupakan text file yang mendeskripsikan yang dibutuhkan docker
+untuk menyiapkan image, seperti instalasi package, membuat direktori, dan defining environment variable.
+untuk lebih jelasnya akan di bahas pada chapter 2.
+
+contoh disini, kita akan membuat docker image berbasis docker image busybox tapi anda ingin 
+men define environment variable.
+
+1. buat file dengan nama Dockerfile
+2. isikan script berikut:
+FROM busybox
+
+ENV foo=bar
+3. ketikan di terminal: sudo docker build -t busybox2 .
+4. untuk melihat hasilnya ketikan: sudo docker images
+

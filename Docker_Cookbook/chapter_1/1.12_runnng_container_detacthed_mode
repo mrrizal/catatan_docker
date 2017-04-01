@@ -1,0 +1,8 @@
+menjalankan docker container backgroud mode :sudo docker run -d -p 1234:1234 python:2.7 python -m SimpleHTTPServer 1234
+
+untuk mengakses nya, buka ip docker host dengan port 1234
+
+melihat container yang sendang jalan: sudo docker ps
+
+konek ke docker container yang sedang jalan lewat shell: sudo docker exec -ti id_container /bin/bash
+
