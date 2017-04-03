@@ -1,0 +1,15 @@
+buat file dengan nama Docker file
+
+pada tulisan ini, image akan dibuat berdasarkan ubuntu 16.04
+
+berikut ini file Dockerfile
+FROM ubuntu:16.04
+
+ENTRYPOINT ["/bin/echo"]
+
+kemudian ketikan: sudo docker build image_id kata_yang_akan_di_print
+
+contoh isi lain dari Dockerfile
+FROM ubuntu:16.04
+
+CMD ["/bin/echo" , "Hi Docker !"]

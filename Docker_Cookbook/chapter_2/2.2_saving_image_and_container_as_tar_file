@@ -1,0 +1,11 @@
+container to tar file
+sudo docker export container_id > file_name.tar
+
+tar file to docker images
+sudo docker import - image_name < file_name.tar 
+
+image to tar file
+sudo docker save -o file_name.tar image_name
+
+tar file from image to image
+sudo docker load < file_name.tar

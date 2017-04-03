@@ -1,0 +1,12 @@
+pada tulisan ini, kita akan menyimpan perubahan yang dilakukan pada container
+dengan melakukan commit yang nantinya akan menjadi docker image
+
+pertama, kita jalankan container misal ubuntu 16.04:sudo docker run -ti ubuntu:16.04 /bin/bash
+
+setelah kita masuk ke shell container ubuntu 16.04, kita lakukan update: apt-get update
+
+keluar dari container, kemudian lakukan commit: sudo docker commit id_container namaimage, 
+contoh: sudo docker commit b5e70b499ed6 ubuntu:update
+
+untuk melihat perbedaan antara base image dengan container, gunakan diff: sudo docker diff id_container
+

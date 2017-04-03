@@ -1,0 +1,35 @@
+1. create hello.py:
+#!/usr/bin/env python
+from flask import Flask
+app = Flask(__name__)
+@app.route('/hi')
+def hello_world():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
+
+2. create Dockerfile:
+FROM ubuntu:14.04
+RUN apt-get update
+RUN apt-get install -y python
+RUN apt-get install -y python-pip
+RUN apt-get clean all
+
+RUN pip install flask
+
+ADD hello.py /tmp/hello.py
+
+EXPOSE 5000
+
+CMD ["python", "/tmp/hello.py"]
+
+3. build docker file: sudod docker build -t nama_image_yang_ingin_dibuat .
+
+4. run docker: sudo docker run -d -P flask, atau sudo docker run -t -i -P flask /bin/bash
+
+5. cek ip sudo docker inspect id_container, pada contoh ini ip nya 172.17.0.2
+
+6. cek aplikasi flask: 172.17.0.2:5000/hi
+
