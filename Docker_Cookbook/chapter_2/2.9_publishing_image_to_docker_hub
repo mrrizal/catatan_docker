@@ -1,0 +1,12 @@
+login dulu: docker login
+
+ganti tag image yang akan di push dengan tag username kita,
+contoh: sudo docker tag centos_7:update rizalubuntuuser/centos_7
+
+push docker image
+sudo docker push rizalubuntuuser/centos_7
+
+setelah selesai, lihat di docker hub
+
+tambahan, untuk cari image:
+sudo docker search nama_image

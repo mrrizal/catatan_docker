@@ -1,0 +1,13 @@
+versioning image, gampang nya copy image kemudian paste dengan nama yang baru.
+jadi image yang lama tetap ada, dan image baru muncul.
+
+contoh, kita akan versioning image ubuntu:14.04:
+sudo docker tag ubuntu:14.04 foo
+
+dari perintah di atas, akan muncul image foo dengan tag latest
+tapi image ubuntu:14.04 akan tetap ada
+
+contoh lain jiga tag nya juga ingin custom:
+sudo docker tag ubuntu:14.04 foo:cookbook
+
+hasilnya akan muncul image foo dengan tag cookbook dan image ubuntu:14.04 masih tetap ada
