@@ -1,5 +1,5 @@
 untuk akses shell container:
-sudo docker exec -t -t id_container /bin/bash
+sudo docker exec -t -i id_container /bin/bash
 
 untuk melihat ip dan informasi pada container tertentu:
 sudo docker inspect id_container

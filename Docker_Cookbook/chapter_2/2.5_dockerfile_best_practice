@@ -1,0 +1,27 @@
+1. run single process per container:
+	misal cuman jalanin apache, atau cuman jalanin mysql
+
+2. jangan edit kontainer tanpa di simpan ke docker image, jadi kalo mau jalanin tinggal
+   buat container dari docker image yang telah dibuat dari container. manage runtime configuration
+   dan data diluar container (gunakan docker volume)
+
+3. gunakan .dockerignore file, fungsinya sama saya .gitignore
+
+4. gunakan official image dari docker hub, atau gunakana ONBUILD image
+
+5. perkecil banyaknya layer pada image (makin sedikit perintah makin baik),
+   misal:
+   
+   jelek:
+   RUN apt-get update
+   RUN apt-get install -y python
+   RUN apt-get install -y python-pip
+
+   bagus:
+   RUN apt-get update && apt-get install -y \
+   python
+   python-pip
+
+   jika ingin lebih baik, lihat point 4. gunakan official python image:
+   FROM python:2.7.10
+   
